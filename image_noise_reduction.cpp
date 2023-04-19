@@ -8,7 +8,7 @@ int main()
 {
     string image_path = "../images/example.jpeg";
     Mat original_image = imread(image_path, IMREAD_COLOR);
-    resize(original_image, original_image, {500, 500});
+    resize(original_image, original_image, {900, 600});
     if (original_image.empty())
     {
         cout << "Could not load image" << endl;
@@ -23,14 +23,16 @@ int main()
     inRange(hsvImage, Scalar(low_H, low_S, low_V), Scalar(high_H, high_S, high_V), imageThreshold);
     Mat medianBlurImage, gaussianBlurImage;
 
-    medianBlur(original_image, medianBlurImage, 9);
-    GaussianBlur(original_image, gaussianBlurImage, Size(1, 1), 9, 9);
+    medianBlur(original_image, medianBlurImage, 11);
+    GaussianBlur(original_image, gaussianBlurImage, Size(5, 5), 9, 9);
 
     imshow("Original Image", original_image);
     imshow("HSV Image", hsvImage);
     imshow("Image Threshold", imageThreshold);
     imshow("Median Blur Image", medianBlurImage);
     imshow("Gaussian Blur Image", gaussianBlurImage);
+    imwrite("../images/medianBlur.png", medianBlurImage);
+    imwrite("../images/gaussianBlur.png", gaussianBlurImage);
     waitKey(0);
     return 0;
 }
