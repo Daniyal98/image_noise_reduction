@@ -10,7 +10,7 @@ Used OpenCV to remove noise from an image. Used median blur and gaussian blur me
 
 ### Median Blur Method
 
-![Alt text](images/median.png "Median Blur")
+![Alt text](images/medianBlur.png "Median Blur")
 
 ### Gaussian Blur Method
 
